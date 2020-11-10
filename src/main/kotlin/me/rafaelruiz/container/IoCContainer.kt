@@ -140,4 +140,14 @@ class IoCContainer {
 
     val scopedDefinitions = hashMapOf<Pair<KClass<*>, String>, Any>()
 
+    companion object {
+        private var singleton: IoCContainer? = null
+        fun getInstance(): IoCContainer {
+            if (singleton == null) {
+                singleton = IoCContainer()
+            }
+
+            return singleton!!
+        }
+    }
 }
